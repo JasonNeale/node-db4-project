@@ -2,16 +2,17 @@ exports.up = function(knex) {
     return knex.schema
     .createTable('recipes', tbl => {
         tbl.increments()
-        tbl.text('title').notNullable().default('N/A')
-        tbl.text('description').notNullable().default('N/A')
-        tbl.text('preptime').notNullable().default('N/A')
-        tbl.text('cooktime').notNullable().default('N/A')
-        tbl.text('yield').notNullable().default('N/A')
+        tbl.text('title').notNullable()
+        tbl.text('description').notNullable()
+        tbl.text('preptime').notNullable()
+        tbl.text('cooktime').notNullable()
+        tbl.text('yield').notNullable()
         tbl.binary('photo')
-        tbl.integer('authorId').notNullable().default(0)
+        tbl.integer('authorId').notNullable()
+        tbl.datetime('createdAt').notNullable()
+        tbl.datetime('updatedAt').notNullable()
+        
         tbl.foreign('authorId').references('id').inTable('authors')
-        tbl.datetime('createdAt').notNullable().default('N/A')
-        tbl.datetime('updatedAt').notNullable().default('N/A')
     })
 }
 

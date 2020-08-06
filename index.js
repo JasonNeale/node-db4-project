@@ -1,4 +1,6 @@
-const app = require("./api/server")
-const PORT = process.env.PORT || 5001
+require('dotenv')
 
-app.listen(PORT, () => console.log(`[LOG]: API Server is listening on http://localhost:${PORT}`))
+const app = require("./api/server")
+const PORT = process.env.PORT || 5005
+
+app.listen(PORT, () => console.log(`[API SERVER LOG]: API Server is listening on Port: ${PORT}`))
