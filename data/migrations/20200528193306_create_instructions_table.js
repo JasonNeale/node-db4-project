@@ -2,12 +2,13 @@ exports.up = function(knex) {
     return knex.schema
     .createTable('instructions', tbl => {
         tbl.increments()
-        tbl.text('stepNumber').notNullable().default('N/A')
-        tbl.text('description').notNullable().default('N/A')
-        tbl.integer('recipeId').notNullable().default(0)
+        tbl.text('stepNumber').notNullable()
+        tbl.text('description').notNullable()
+        tbl.integer('recipeId').notNullable()
+        tbl.datetime('createdAt').notNullable()
+        tbl.datetime('updatedAt').notNullable()
+        
         tbl.foreign('recipeId').references('id').inTable('recipes')
-        tbl.datetime('createdAt').notNullable().default('N/A')
-        tbl.datetime('updatedAt').notNullable().default('N/A')
     })
 }
 
